@@ -35,6 +35,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     // TextMesh left_page=GameObject.Finsd("text_left").GetComponent<TextMesh>();
 
+
+    //last test wansik
+
     protected virtual void Start()
     {    
             TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
