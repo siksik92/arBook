@@ -1,7 +1,7 @@
 ﻿/*==============================================================================
 Copyright (c) 2019 PTC Inc. All Rights Reserved.
 commit test!aaaasdfsdafsdafdsasdfsda
-Confidential and Proprietary - Protected under copyright and other laws.
+Confiasdfdsdential and Proprietary - Protected under copyright and other laws.
 
 Vuforia is a trademark of PTC Inc., registered in the United States and other 
 countries.
