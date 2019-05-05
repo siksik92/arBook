@@ -39,7 +39,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //last test wansik
 
 
-        //really lastaaa
+        //really lastaaaasdfdsfasd11
     protected virtual void Start()
     {    
             TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
