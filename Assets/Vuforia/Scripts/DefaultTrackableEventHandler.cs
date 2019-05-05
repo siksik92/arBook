@@ -50,6 +50,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     //change !
 
     //wansik changed!!!8:06
+    //new!!!
     protected virtual void Start()
     {    
             TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
