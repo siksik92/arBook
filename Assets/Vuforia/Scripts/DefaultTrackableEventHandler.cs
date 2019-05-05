@@ -34,7 +34,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     int cur_right_page=2;
 
 /// hi, meng 
-    //wansik changed
+    //wansik changed again
     // TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
 
     protected virtual void Start()
