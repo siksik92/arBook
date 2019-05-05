@@ -40,6 +40,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
 
         //really lastaaaasdfdsfasd11
+
+    //change !
     protected virtual void Start()
     {    
             TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
