@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="arBook" size="0.250000 0.175325" />
+    <ImageTarget name="KakaoTalk_20190420_223234530" size="0.250000 0.295918" />
+  </Tracking>
+</QCARConfig>
