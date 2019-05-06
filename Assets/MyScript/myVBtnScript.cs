@@ -9,21 +9,24 @@ public class myVBtnScript : MonoBehaviour, IVirtualButtonEventHandler
 {
 	public GameObject vbBtnObj;
     public TextMesh text_left;
-    private int cnt = 0;
 
     public VideoPlayer vp;
     public VideoClip[] videoClips;
 
+    private int cnt = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Register Virtual button EventHandler
         vbBtnObj = GameObject.Find("MyVBtn1");
         vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterEventHandler(this);
 
+        // Get text_left
         text_left = GameObject.Find("text_left").GetComponent<TextMesh>();
 
+        // Get VideoPlane
         vp = GameObject.Find("VideoPlane").GetComponent<VideoPlayer> ();
-
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
@@ -33,13 +36,16 @@ public class myVBtnScript : MonoBehaviour, IVirtualButtonEventHandler
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
-        cnt++;
         Debug.Log("Button released");
+
+        // Set new string
+        cnt++;
         text_left.text = cnt.ToString();
 
         if (cnt >= 4)
             cnt = 0;
 
+        // Set new VideoCLip
         vp.clip = videoClips[cnt];
 
         if (vp.isPlaying)
