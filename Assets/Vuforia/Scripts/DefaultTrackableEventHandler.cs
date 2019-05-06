@@ -6,8 +6,13 @@ All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
-using UnityEngine;
 using Vuforia;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.UI;
+
 // namespace UnityStandardAssets.Cameras;
 
 /// <summary>
@@ -29,39 +34,31 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region UNITY_MONOBEHAVIOUR_METHODS
     string[] left_page_content;
     string[] right_page_content;
+    //video list
 
+    VideoClip[] resourceVideoClips;
+    TextAsset[] resourceTexts;
     int cur_left_page=1;
     int cur_right_page=2;
+    
+    VideoPlayer vp1,vp2;
 
-    // TextMesh left_page=GameObject.Finsd("text_left").GetComponent<TextMesh>();
-
-
-    //last test wansik
-    // meng changed! 07:54
-    // meng changed! 07:59
-
-
-//wansik changed!!!
-    //my update 7:58
-
-
-        //really lastaaaasdfdsfasd11
-
-    //change !
-
-    //wansik changed!!!8:06
-    //new!!!
-
-    //08:16
     protected virtual void Start()
     {    
-            TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
-            TextMesh right_page=GameObject.Find("text_right").GetComponent<TextMesh>();
-           left_page_content = System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_1.txt");
-           right_page_content = System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_2.txt");
+        
+       resourceVideoClips= Resources.LoadAll<VideoClip>("video");
+       resourceTexts=Resources.LoadAll<TextAsset>("text");
+
+          TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
+          TextMesh right_page=GameObject.Find("text_right").GetComponent<TextMesh>();
+           left_page_content = resourceTexts[0].text.Split('\n');
+           right_page_content =  resourceTexts[1].text.Split('\n');
 
            left_page.text="";
            right_page.text="";
+
+           vp1=GameObject.Find("left_video").GetComponent<VideoPlayer>();
+           vp2=GameObject.Find("right_video").GetComponent<VideoPlayer>();
 
          foreach (string line in left_page_content)
          {
@@ -100,17 +97,21 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         TextMesh left_page=GameObject.Find("text_left").GetComponent<TextMesh>();
         TextMesh right_page=GameObject.Find("text_right").GetComponent<TextMesh>();
-        // var video=GameObject.Find("video_tmp").GetComponent<VideoPlayer>();
-        // video.url="C:/Users/wansik/arBook/Assets/Resources/video_3";
+
         if(Input.GetKeyDown(KeyCode.RightArrow))
         {
-            // video.Play();
+
               if(cur_left_page==3)
                 return;
             int next_left_page=cur_left_page%4+2;
             int next_right_page=cur_right_page%4+2;
-            left_page_content=System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_"+next_left_page+".txt");
-            right_page_content=System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_"+next_right_page+".txt");
+            left_page_content=resourceTexts[next_left_page-1].text.Split('\n');
+            right_page_content=resourceTexts[next_right_page-1].text.Split('\n');
+
+            vp1.clip=resourceVideoClips[next_left_page-1];
+            vp2.clip=resourceVideoClips[next_right_page-1];
+            vp1.Play();
+            vp2.Play();
 
             left_page.text="";
             right_page.text="";
@@ -138,8 +139,13 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
                 return;
             int before_left_page=(cur_left_page+4-2)%4;
             int before_right_page=(cur_right_page+4-2)%4;
-            left_page_content=System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_"+before_left_page+".txt");
-           right_page_content=System.IO.File.ReadAllLines("C:/Users/wansik/arBook/Assets/Resources/text_"+before_right_page+".txt");
+            left_page_content=resourceTexts[before_left_page-1].text.Split('\n');
+            right_page_content=resourceTexts[before_right_page-1].text.Split('\n');
+
+            
+            vp1.clip=resourceVideoClips[before_left_page-1];
+            vp2.clip=resourceVideoClips[before_right_page-1];
+
             left_page.text="";
             right_page.text="";
              foreach (string line in left_page_content)
