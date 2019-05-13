@@ -49,6 +49,7 @@ public class myVBtnScript : MonoBehaviour, IVirtualButtonEventHandler
         vp.clip = videoClips[cnt];
 
         if (vp.isPlaying)
+        {
             {
                 vp.Pause();
             }
@@ -56,6 +57,7 @@ public class myVBtnScript : MonoBehaviour, IVirtualButtonEventHandler
             {
                 vp.Play();
             }
+        }
     }
 
     // Update is called once per frame
