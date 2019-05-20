@@ -46,17 +46,16 @@ public class myVBtnScript : MonoBehaviour, IVirtualButtonEventHandler
             cnt = 0;
 
         // Set new VideoCLip
-        vp.clip = videoClips[cnt];
+        //vp.clip = videoClips[cnt];
 
         if (vp.isPlaying)
         {
-            {
-                vp.Pause();
-            }
-            else
-            {
-                vp.Play();
-            }
+            
+            vp.Pause();
+        }
+        else
+        {
+             vp.Play();
         }
     }
 
